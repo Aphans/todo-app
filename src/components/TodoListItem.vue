@@ -3,7 +3,7 @@
     import { useTodo } from '../stores/todo';
     const store = useTodo()
     //actions
-    const {toogleTodo} = store
+    const {toogleTodo,deleteTodo} = store
     const props = defineProps({
         id:Number,
         task:String,
@@ -14,5 +14,8 @@
     const {id,task,completed,date} = toRefs(props)
 </script>
 <template>
-    <li @click="toogleTodo(id)">{{ task }} -- {{ completed }} -- {{ date }}</li>
+    <li>
+    <div @click="toogleTodo(id)">{{ task }} -- {{ completed }} -- {{ date }}</div>
+    <button @click="deleteTodo(id)">Delete</button>
+    </li>
 </template>
